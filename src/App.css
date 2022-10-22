@@ -1,0 +1,32 @@
+body{
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+  /* background-image: url("image.jpg");2 */
+}
+
+.container{
+  width: 100%;
+  margin: 1em auto;
+  background-color: darkslategray;
+}
+
+.grid{
+  display: grid;
+  margin-left: .5px;
+  grid-template-columns: repeat(4,1fr);
+  grid-gap: 0.2em;
+  justify-content: center;
+}
+
+h2{
+  background-color: antiquewhite;
+}
+.box-grid {
+  padding: 0px !important;
+  padding-top: 30px !important;
+  background-color: #2c2c2c;
+}
