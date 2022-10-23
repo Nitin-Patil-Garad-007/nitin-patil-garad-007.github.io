@@ -18,8 +18,9 @@ const MovieTitileModel = styled.div`
   padding:7px;
 `;
 const MovieTitle = styled.div`
+font-size: 3rem;
  @media screen and (max-width: 1250px) {
-     font-size: 3rem;
+     font-size: 2.5rem;
     }
  @media screen and (max-width: 760px) {
      font-size: 2rem;
@@ -56,32 +57,62 @@ background-color: #91faf6;
 border-radius: 20px;
 padding:1px 0px 0px 5px;
 `;
+const PosterImg = styled.div`
+ margin: auto;
+    display: block;
+    width: 100%;
+    height: 30em;
+    @media screen and (max-width: 1100px) {
+        height: 30em;
+    }
+    @media screen and (max-width: 800px) {
+        height: 25em;
+    }
+    @media screen and (max-width: 650px) {
+        height: 18em;
+    }
+`;
 
 const TrendingMovieBox = (props) => {
     const { backdrop_path, original_title, poster_path, original_language, overview, release_date, vote_average } = props;
     const [show, setShow] = useState(false);
+    const [width, setWidth] = React.useState(window.innerWidth);
+    const breakpoint = 650;
+
+    React.useEffect(() => {
+        window.addEventListener("resize", () => setWidth(window.innerWidth));
+
+    }, []);
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
     return (
         <div>
+            
             <button type="button" className="btn btn-dark" onClick={handleShow} >
-                <div style={{ margin: '20px' }} className="posterImage">
+                <PosterImg className="posterImage">
                     <img src={`https://image.tmdb.org/t/p/original${backdrop_path}`} />
-                </div>
+                </PosterImg>
 
                 <div className="posterImage__overlay">
+                <MovieTitle style={{color:'blue',fontSize:'2em'}} className="posterImage__title">Trending...</MovieTitle>
                     <MovieTitle className="posterImage__title">{original_title}</MovieTitle>
                     <div className="posterImage__runtime">
                         {release_date}
-                        <span className="posterImage__rating">
 
-                            {vote_average}
-                            <i className="fas fa-star" />{" "}
-                        </span>
+                        {
+                            width < breakpoint ? '' : <span className="posterImage__rating">
+
+                                {vote_average}
+                                <i className="fas fa-star" />{" "}
+                            </span>
+                        }
 
                     </div>
-                    <Descritption className="posterImage__description">{overview}</Descritption>
+                    {width < breakpoint ? '' : <Descritption className="posterImage__description">{overview}</Descritption>
+
+                    }
+
                 </div>
             </button>
 

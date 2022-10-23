@@ -12,10 +12,11 @@ text-align:center;
 margin-top:0px;
 border-radius: 5px;
 background-color: #dce8e1;
-padding:5px 2px;
+padding:2px 2px;
 margin:auto;
 width:100px;
-color:#0fdb61
+color:#0fdb61;
+font-size: 18px;
 `;
 const Details = () => {
     const [logindata, setLoginData] = useState([]);
