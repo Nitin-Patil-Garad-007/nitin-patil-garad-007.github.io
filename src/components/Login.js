@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 import swal from 'sweetalert';
 import styled from 'styled-components'
 
-const LoginInput=styled.input`
+const LoginInput = styled.input`
 transition: 1s;
 &:focus{
   border-color: #ed15e6;
@@ -23,7 +23,6 @@ const Login = () => {
         password: ""
     })
 
-    // const [data, setData] = useState([]);
     console.log(inpval);
 
     const getdata = (e) => {
@@ -83,46 +82,22 @@ const Login = () => {
 
     return (
         <>
-        <div style={{backgroundColor:'#96a0b0',height:'55em'}}>
-        <div class="login">
-  <div class="login-triangle"></div>
-  
-  <h2 class="login-header" style={{padding:'8em ,0em'}}>Log in</h2>
+            <div style={{ backgroundColor: '#96a0b0', height: '55em' }}>
+                <div class="login">
+                    <div class="login-triangle"></div>
 
-  <form class="login-container" >
-    <p><LoginInput type="email" name='email' onChange={getdata} placeholder="Enter email"/></p>
-    <p><LoginInput type="password" name='password' onChange={getdata} placeholder="Password" /></p>
-    <p><LoginInput onClick={addData} style={{ background: "rgb(67, 185, 127)" }} type="submit" value="Log in" /></p>
-    &emsp; &emsp; &emsp; &emsp;&ensp; Dont Have Account <span><NavLink to="/registrationPage" style={{textDecoration:'none'}}>SignUp</NavLink></span>
-  </form>
-  <ToastContainer />
-</div>
-        </div>
-            {/* <div className="container mt-3">
-                <section className='d-flex justify-content-between'>
-                    <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
-                        <h3 className='text-center col-lg-6'>Sign IN</h3>
-                        <Form >
+                    <h2 class="login-header" style={{ padding: '8em ,0em' }}>Log in</h2>
 
-                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
+                    <form class="login-container" >
+                        <p><LoginInput type="email" name='email' onChange={getdata} placeholder="Enter email" /></p>
+                        <p><LoginInput type="password" name='password' onChange={getdata} placeholder="Password" /></p>
+                        <p><LoginInput onClick={addData} style={{ background: "rgb(67, 185, 127)" }} type="submit" value="Log in" /></p>
+                        &emsp; &emsp; &emsp; &emsp;&ensp; Dont Have Account <span><NavLink to="/registration" style={{ textDecoration: 'none' }}>SignUp</NavLink></span>
+                    </form>
+                    <ToastContainer />
+                </div>
+            </div>
 
-                                <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email" />
-                            </Form.Group>
-
-                            <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
-
-                                <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" />
-                            </Form.Group>
-                            <Button variant="primary" className='col-lg-6' onClick={addData} style={{ background: "rgb(67, 185, 127)" }} type="submit">
-                                Submit
-                            </Button>
-                        </Form>
-                        <p className='mt-3'>Dont Have Account <span><NavLink to="/registrationPage">SignUp</NavLink></span> </p>
-                    </div>
-                   
-                </section>
-                <ToastContainer />
-            </div> */}
         </>
     )
 }

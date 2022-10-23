@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import {useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Popup from 'reactjs-popup';
 import UserLogo from '../Images/UserLogo.png'
 import swal from 'sweetalert';
 import MovieData from '../Movie Data/MovieData'
 
-const ModelDiv=styled.div`
+const ModelDiv = styled.div`
     border: 2px solid #91fae3;
     padding: 5px 10px;
 `;
@@ -35,21 +35,21 @@ const ResponsivePopupContainer = styled.div`
   }
 `;
 const contentStyle = {
-    margin: 'auto',
-    background: 'rgb(255, 255, 255)',
-    width: 'fit-content',
-    height: 'auto',
-    padding: '5px',
-    minWidth: '26%',
-    border: '2px solid #d7d7d7'
-  };
-  const overlayStyle = {
-    background: 'rgba(0,0,0,0.1)' ,
-    width: 'auto',
-    height: 'auto',
-    overflow:'auto'
-  };
-  const Button = styled.button`
+  margin: 'auto',
+  background: 'rgb(255, 255, 255)',
+  width: 'fit-content',
+  height: 'auto',
+  padding: '5px',
+  minWidth: '26%',
+  border: '2px solid #d7d7d7'
+};
+const overlayStyle = {
+  background: 'rgba(0,0,0,0.1)',
+  width: 'auto',
+  height: 'auto',
+  overflow: 'auto'
+};
+const Button = styled.button`
   background: ${props => props.primary ? '#0097f1' : '#FF7F50'};
   color: #ffffff;
   font-size: 1em;
@@ -67,7 +67,7 @@ const contentStyle = {
   }
 `;
 
-const MovieDescriptionModel=styled.div`
+const MovieDescriptionModel = styled.div`
   width:300px;
   height:60px;
 
@@ -79,7 +79,7 @@ const MovieDescriptionModel=styled.div`
   padding:7px;
   /* margin: 10px 0px; */
 `;
-const H5Des=styled.h5`
+const H5Des = styled.h5`
 text-align:center;
 margin-top:7px;
 padding-top:5px;
@@ -111,97 +111,97 @@ const ButtonLogout = styled.button`
 
 const MovieHomePage = () => {
 
-    const [logindata, setLoginData] = useState([]);
-    const [modalOpen, setModalOpen] = useState(false);
+  const [logindata, setLoginData] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
 
-    console.log(logindata,'mylogindata');
+  console.log(logindata, 'mylogindata');
 
-    const history = useNavigate();
+  const history = useNavigate();
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    const closePopup = (event) => {
-        setModalOpen(false);
-      };
-    
+  const closePopup = (event) => {
+    setModalOpen(false);
+  };
 
-    const UserData = () => {
-        const getuser = localStorage.getItem("user_login");
-        if (getuser && getuser.length) {
-            const user = JSON.parse(getuser);
-         
-            setLoginData(user);
-        }
+
+  const UserData = () => {
+    const getuser = localStorage.getItem("user_login");
+    if (getuser && getuser.length) {
+      const user = JSON.parse(getuser);
+
+      setLoginData(user);
     }
-    const ViewProfile = (event) => {
-        setModalOpen(true);
-      };
+  }
+  const ViewProfile = (event) => {
+    setModalOpen(true);
+  };
 
-    const userlogout = ()=>{
-        localStorage.removeItem("user_login")
-        swal(`User Logout Successfully...!`, "", "success");
-        history("/");
-    }
+  const userlogout = () => {
+    localStorage.removeItem("user_login")
+    swal(`User Logout Successfully...!`, "", "success");
+    history("/");
+  }
 
-    useEffect(() => {
-      UserData();
-    }, [])
+  useEffect(() => {
+    UserData();
+  }, [])
 
-    return (
-        <>
-       {
+  return (
+    <>
+      {
         logindata &&
         <>
-         <div style={{backgroundColor:'#212529'}} class="button-div">
-                   <h5 style={{float:'right',textAlign:'center',marginTop:'7px',paddingTop:'6px',margin:'auto',width:'570px',color:'#0fdb61'}} class="signup-button">Welcome : <span style={{color:'#fa7f05'}}>{logindata.length ===0 ? 'welcome': logindata[0].name}</span></h5>
-                   <button  style={{marginLeft:'25px'}} onClick={() => ViewProfile()} class="login-button">Profile</button>
-                </div>
-        <MovieData />
-     </>
-       }
-              
-            {
-                logindata.length === 0 ? "errror" :
-                    <>
-                {
-                    modalOpen &&
-                   
-                    <ResponsivePopupContainer  onClick={closePopup}>
-                        
-                    <Popup modal open={modalOpen} onClose={closePopup} {...{ contentStyle, overlayStyle }} >
-                    <ModelDiv  style={{margin:'5px 10px',backgroundColor:'#b9c9b9'}}>
-                    <div class="button-div">
-                    <h5 style={{textAlign:'center',marginTop:'7px',paddingTop:'4px',margin:'auto',width:'570px',color:'#0fdb61',marginRight:'5em'}} class="signup-button">Hello : <span style={{color:'#fa7f05'}}>{logindata.length ===0 ? 'welcome': logindata[0].name} 😄</span></h5>
-                </div><br /><br /><br />
-                    <img style={{height:'136px',margin:'0px 150px'}} src={UserLogo} alt="" /> <hr style={{color:'red'}} />
-                  <div style={{marginLeft:'0px'}}>
-                  <MovieDescriptionModel>
-                    <H5Des class="signup-button">Name: {logindata[0].name}<span style={{ color: '#fa7f05' }}> </span></H5Des>
-                  </MovieDescriptionModel>
-                  <MovieDescriptionModel>
-                    <H5Des class="signup-button">Email: {logindata[0].email}<span style={{ color: '#fa7f05' }}> </span></H5Des>
-                  </MovieDescriptionModel>
-                  <MovieDescriptionModel>
-                    <H5Des class="signup-button">Contact: {logindata[0].mobile_number}<span style={{ color: '#fa7f05' }}> </span></H5Des>
-                  </MovieDescriptionModel>
-                
-                
-                  </div>
-                   <ButtonLogout style={{float:'right',}} id="btnCancelInstance" danger onClick={() => {closePopup(); }}>Cancel</ButtonLogout>
-                   <Button style={{float:'right'}} onClick={userlogout}>LogOut</Button >
-                   </ModelDiv>
-                    </Popup>
-                    
-                  </ResponsivePopupContainer>
-                 
-                }
-                     
-                    </>
-            }
+          <div style={{ backgroundColor: '#212529' }} class="button-div">
+            <h5 style={{ float: 'right', textAlign: 'center', marginTop: '7px', paddingTop: '6px', margin: 'auto', width: '570px', color: '#0fdb61' }} class="signup-button">Welcome : <span style={{ color: '#fa7f05' }}>{logindata.length === 0 ? 'welcome' : logindata[0].name}</span></h5>
+            <button style={{ marginLeft: '25px' }} onClick={() => ViewProfile()} class="login-button">Profile</button>
+          </div>
+          <MovieData />
         </>
-    )
+      }
+
+      {
+        logindata.length === 0 ? "errror" :
+          <>
+            {
+              modalOpen &&
+
+              <ResponsivePopupContainer onClick={closePopup}>
+
+                <Popup modal open={modalOpen} onClose={closePopup} {...{ contentStyle, overlayStyle }} >
+                  <ModelDiv style={{ margin: '5px 10px', backgroundColor: '#b9c9b9' }}>
+                    <div class="button-div">
+                      <h5 style={{ textAlign: 'center', marginTop: '7px', paddingTop: '4px', margin: 'auto', width: '570px', color: '#0fdb61', marginRight: '5em' }} class="signup-button">Hello : <span style={{ color: '#fa7f05' }}>{logindata.length === 0 ? 'welcome' : logindata[0].name} 😄</span></h5>
+                    </div><br /><br /><br />
+                    <img style={{ height: '136px', margin: '0px 150px' }} src={UserLogo} alt="" /> <hr style={{ color: 'red' }} />
+                    <div style={{ marginLeft: '0px' }}>
+                      <MovieDescriptionModel>
+                        <H5Des class="signup-button">Name: {logindata[0].name}<span style={{ color: '#fa7f05' }}> </span></H5Des>
+                      </MovieDescriptionModel>
+                      <MovieDescriptionModel>
+                        <H5Des class="signup-button">Email: {logindata[0].email}<span style={{ color: '#fa7f05' }}> </span></H5Des>
+                      </MovieDescriptionModel>
+                      <MovieDescriptionModel>
+                        <H5Des class="signup-button">Contact: {logindata[0].mobile_number}<span style={{ color: '#fa7f05' }}> </span></H5Des>
+                      </MovieDescriptionModel>
+
+
+                    </div>
+                    <ButtonLogout style={{ float: 'right', }} danger onClick={() => { closePopup(); }}>Cancel</ButtonLogout>
+                    <Button style={{ float: 'right' }} onClick={userlogout}>LogOut</Button >
+                  </ModelDiv>
+                </Popup>
+
+              </ResponsivePopupContainer>
+
+            }
+
+          </>
+      }
+    </>
+  )
 }
 
 export default MovieHomePage

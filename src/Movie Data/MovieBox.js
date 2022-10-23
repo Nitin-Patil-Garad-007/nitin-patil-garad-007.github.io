@@ -1,14 +1,14 @@
-import { Modal,Button} from 'react-bootstrap';
-import React, {useState} from 'react';
+import { Modal, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-const API_IMG="https://image.tmdb.org/t/p/w500/";
+const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
-const ImgBox=styled.div`
+const ImgBox = styled.div`
 height: 25em;
 width: 20em;
 margin: 0em 0em 4em 0em;
 `;
-const MovieTitile=styled.div`
+const MovieTitile = styled.div`
   width:300px;
   height:60px;
   display:flex;
@@ -19,7 +19,7 @@ const MovieTitile=styled.div`
   border-radius:7px;
   padding:7px;
 `;
-const MovieTitileModel=styled.div`
+const MovieTitileModel = styled.div`
   width:400px;
   height:60px;
 
@@ -32,7 +32,7 @@ const MovieTitileModel=styled.div`
   border-radius:7px;
   padding:7px;
 `;
-const MovieDescriptionModel=styled.div`
+const MovieDescriptionModel = styled.div`
   width:300px;
   height:40px;
 
@@ -43,7 +43,7 @@ const MovieDescriptionModel=styled.div`
   border-radius:7px;
   padding:7px;
 `;
-const H5Des=styled.h5`
+const H5Des = styled.h5`
 text-align:center;
 margin-top:7px;
 padding-top:5px;
@@ -55,63 +55,62 @@ background-color: #91faf6;
 border-radius: 20px;
 padding:1px 0px 0px 5px;
 `;
-const MovieBox =({original_title,original_language, poster_path, vote_average, release_date, overview})=>{
-    
-    const [show, setShow]=useState(false);
+const MovieBox = ({ original_title, original_language, poster_path, vote_average, release_date, overview }) => {
 
-    const handleShow=()=>setShow(true);
-    const handleClose=()=>setShow(false);
-    
-    return(
-        <>
-        
-         <div style={{margin:' 0px 20px'}} className="card text-center bg-secondary mb-3">
-             <div className="card-body">
-             <ImgBox>
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
+  return (
+    <>
+
+      <div style={{ margin: ' 0px 20px' }} className="card text-center bg-secondary mb-3">
+        <div className="card-body">
+          <ImgBox>
             <button type="button" className="btn btn-dark" onClick={handleShow} >
-              <img className="card-img-top" src={API_IMG+poster_path} />
+              <img className="card-img-top" src={API_IMG + poster_path} />
             </button>
             <MovieTitile>
-       <h5 style={{float:'right',textAlign:'center',marginTop:'7px',paddingTop:'5px',margin:'auto',width:'570px',color:'#0066ff',fontSize:'20px',padding:'1px 0px 0px 5px'}} class="signup-button">{original_title} <span style={{color:'#fa7f05'}}> </span></h5>
-    </MovieTitile>
-            {/* <h3>{original_title}</h3> */}
-            </ImgBox>
-              <div className="card-body">
-                 
-                  <Modal show={show} onHide={handleClose}>
-                      <Modal.Header closeButton>
-                        <Modal.Title></Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>
-                      <img className="card-img-top" style={{width:'12rem',margin:'0px 8em',border:'3px solid #07f537'}}src={API_IMG+poster_path} />
-                  <MovieTitileModel>
-                    <h5 style={{ textAlign: 'center', marginTop: '7px', paddingTop: '5px', margin: 'auto', width: '570px', color: 'blue', fontSize: '20px', padding: '1px 0px 0px 5px' }} class="signup-button">{original_title} <span style={{ color: '#fa7f05' }}> </span></h5>
-                  </MovieTitileModel>
-                  <MovieDescriptionModel>
-                    <H5Des class="signup-button">IMDb Rating: {vote_average}<span style={{ color: '#fa7f05' }}> </span></H5Des>
-                  </MovieDescriptionModel>
-                  <MovieDescriptionModel>
-                    <H5Des class="signup-button">Release Date: {release_date}<span style={{ color: '#fa7f05' }}> </span></H5Des>
-                  </MovieDescriptionModel>
-                  <MovieDescriptionModel>
-                    <H5Des class="signup-button">Type: Movie<span style={{ color: '#fa7f05' }}> </span></H5Des>
-                  </MovieDescriptionModel>
-                  <MovieDescriptionModel>
-                    <H5Des class="signup-button">Language: {original_language}<span style={{ color: '#fa7f05' }}> </span></H5Des>
-                  </MovieDescriptionModel>
-                      
-                      <h6 style={{marginTop:'5px'}}>Overview</h6>
-                      <p style={{border:"1px solid red", padding:'10px',backgroundColor:'pink',borderRadius:'10px'}}>{overview}</p>
-                      </Modal.Body>
-                      <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>Close</Button>
-                      </Modal.Footer>
-                  </Modal>
-              </div>
-             </div>
-         </div>
-        </>
-    )
+              <h5 style={{ float: 'right', textAlign: 'center', marginTop: '7px', paddingTop: '5px', margin: 'auto', width: '570px', color: '#0066ff', fontSize: '20px', padding: '1px 0px 0px 5px' }} class="signup-button">{original_title} <span style={{ color: '#fa7f05' }}> </span></h5>
+            </MovieTitile>
+          </ImgBox>
+          <div className="card-body">
+
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Header closeButton>
+                <Modal.Title></Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <img className="card-img-top" style={{ width: '12rem', margin: '0px 8em', border: '3px solid #07f537' }} src={API_IMG + poster_path} />
+                <MovieTitileModel>
+                  <h5 style={{ textAlign: 'center', marginTop: '7px', paddingTop: '5px', margin: 'auto', width: '570px', color: 'blue', fontSize: '20px', padding: '1px 0px 0px 5px' }} class="signup-button">{original_title} <span style={{ color: '#fa7f05' }}> </span></h5>
+                </MovieTitileModel>
+                <MovieDescriptionModel>
+                  <H5Des class="signup-button">IMDb Rating: {vote_average}<span style={{ color: '#fa7f05' }}> </span></H5Des>
+                </MovieDescriptionModel>
+                <MovieDescriptionModel>
+                  <H5Des class="signup-button">Release Date: {release_date}<span style={{ color: '#fa7f05' }}> </span></H5Des>
+                </MovieDescriptionModel>
+                <MovieDescriptionModel>
+                  <H5Des class="signup-button">Type: Movie<span style={{ color: '#fa7f05' }}> </span></H5Des>
+                </MovieDescriptionModel>
+                <MovieDescriptionModel>
+                  <H5Des class="signup-button">Language: {original_language}<span style={{ color: '#fa7f05' }}> </span></H5Des>
+                </MovieDescriptionModel>
+
+                <h6 style={{ marginTop: '5px' }}>Overview</h6>
+                <p style={{ border: "1px solid red", padding: '10px', backgroundColor: 'pink', borderRadius: '10px' }}>{overview}</p>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>Close</Button>
+              </Modal.Footer>
+            </Modal>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default MovieBox;

@@ -113,18 +113,21 @@ function MovieData() {
   const searchMovie = async(e)=>{
     e.preventDefault();
     console.log("Searching");
-    try{
-      const url=`https://api.themoviedb.org/3/search/movie?api_key=e0852db878d09b2f4caec317b6184bcc&query=${query}`;
-      const res= await fetch(url);
-      const data= await res.json();
-      console.log(data);
-      setshowTrendingMovie(false)
-      setMovies(data.results);
+    if(query.trim().length ==0){
+      swal('Please Enter Movie Name !','',"error")
+    }else{
+      try{
+        const url=`https://api.themoviedb.org/3/search/movie?api_key=e0852db878d09b2f4caec317b6184bcc&query=${query}`;
+        const res= await fetch(url);
+        const data= await res.json();
+        console.log(data);
+        setshowTrendingMovie(false)
+        setMovies(data.results);
+      }
+      catch(e){
+        console.log(e);
+      }
     }
-    catch(e){
-      console.log(e);
-    }
-   
   }
 
   useEffect(() => {
@@ -170,18 +173,15 @@ function MovieData() {
       <TrendingMovies />
     }
            
-
       {movies.length > 0 ?(
         <div >
-        {/* <div className="grid"> */}
             <MovieListContainer className='ijZktC'>
           {movies.map((movieReq)=>
           <MovieBox key={movieReq.id} {...movieReq}/>)}
           </MovieListContainer>
-            {/* </div> */}
     </div>
       ):(
-        <h2>Sorry !! No Movies Found</h2>
+        <h2>!! Sorry Movies Not Found !! 😭</h2>
       )}
     </div>   
     </>
