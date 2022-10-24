@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "//nitin-patil-garad-007.github.io/static/css/main.397b2671.css",
-    "main.js": "//nitin-patil-garad-007.github.io/static/js/main.6c0e311e.js",
-    "static/js/787.bfb690a5.chunk.js": "//nitin-patil-garad-007.github.io/static/js/787.bfb690a5.chunk.js",
-    "static/media/pnf.jpg": "//nitin-patil-garad-007.github.io/static/media/pnf.d6830fb7037ba4b9ee53.jpg",
-    "static/media/UserLogo.png": "//nitin-patil-garad-007.github.io/static/media/UserLogo.db7219e338a7538ff03d.png",
-    "static/media/MovieIcon.png": "//nitin-patil-garad-007.github.io/static/media/MovieIcon.b76ac461116a5ff6e07d.png",
-    "index.html": "//nitin-patil-garad-007.github.io/index.html",
-    "main.397b2671.css.map": "//nitin-patil-garad-007.github.io/static/css/main.397b2671.css.map",
-    "main.6c0e311e.js.map": "//nitin-patil-garad-007.github.io/static/js/main.6c0e311e.js.map",
-    "787.bfb690a5.chunk.js.map": "//nitin-patil-garad-007.github.io/static/js/787.bfb690a5.chunk.js.map"
+    "main.css": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/css/main.397b2671.css",
+    "main.js": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/js/main.c82f1408.js",
+    "static/js/787.bfb690a5.chunk.js": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/js/787.bfb690a5.chunk.js",
+    "static/media/pnf.jpg": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/media/pnf.d6830fb7037ba4b9ee53.jpg",
+    "static/media/UserLogo.png": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/media/UserLogo.db7219e338a7538ff03d.png",
+    "static/media/MovieIcon.png": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/media/MovieIcon.b76ac461116a5ff6e07d.png",
+    "index.html": "//nitin-patil-garad-007.github.io/react_movie_app/home/index.html",
+    "main.397b2671.css.map": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/css/main.397b2671.css.map",
+    "main.c82f1408.js.map": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/js/main.c82f1408.js.map",
+    "787.bfb690a5.chunk.js.map": "//nitin-patil-garad-007.github.io/react_movie_app/home/static/js/787.bfb690a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.397b2671.css",
-    "static/js/main.6c0e311e.js"
+    "static/js/main.c82f1408.js"
   ]
 }
