@@ -11,7 +11,7 @@ import MovieHomePage from './Pages/MovieHomePage'
 function App() {
   return (
   <>
-    <Routes>
+    <Routes basename="react_movies">
     <Route path='/' element={<Details />} />
       <Route path='/registration' element={<RegistrationPage />} />
       <Route path='/login' element={<Login />} />
